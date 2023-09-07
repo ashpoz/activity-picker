@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "title": "How much time do you have?",
+    "fields": [
+      {
+        "id": 1,
+        "type": "select",
+        "label": "How much time do you have?",
+        "name": "time",
+        "options": [
+          { "value": 15, "label": "15 minutes" },
+          { "value": 30, "label": "30 minutes" },
+          { "value": 45, "label": "45 minutes" },
+          { "value": 60, "label": "60 minutes" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "What type of activity?",
+    "fields": [
+      {
+        "id": 2,
+        "type": "checkbox",
+        "label": "What type of activity?"
+      }
+    ]
+  }
+]
