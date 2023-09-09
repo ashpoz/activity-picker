@@ -1,10 +1,10 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "title": "How much time do you have?",
     "fields": [
       {
-        "id": 1,
+        "id": 0,
         "type": "select",
         "label": "How much time do you have?",
         "name": "time",
@@ -18,13 +18,25 @@
     ]
   },
   {
-    "id": 2,
+    "id": 1,
     "title": "What type of activity?",
     "fields": [
       {
-        "id": 2,
+        "id": 1,
         "type": "checkbox",
-        "label": "What type of activity?"
+        "label": "What type of activity?",
+        "name": "type",
+        "options": [
+          { "value": "outdoor", "label": "Outdoor" },
+          { "value": "exercise", "label": "Exercise" },
+          { "value": "drinks", "label": "Drinks" },
+          { "value": "kid-friendly", "label": "Kid Friendly" },
+          { "value": "free", "label": "Free" },
+          { "value": "relaxing", "label": "Relaxing" },
+          { "value": "exciting", "label": "Exciting" },
+          { "value": "solo", "label": "Solo" },
+          { "value": "social", "label": "Social" }
+        ]
       }
     ]
   }
