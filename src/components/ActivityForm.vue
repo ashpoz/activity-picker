@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import activityFormData from '@/data/activityFormData.json'
 
-let currentStep = ref(activityFormData[0].id)
+let currentStep = ref(activityFormData[0].id);
 
 function nextStep() {
   if (currentStep.value === activityFormData.length - 1) return
@@ -25,19 +25,17 @@ function nextStep() {
       </template>
       <template
         v-else-if="field.type === 'checkbox'"
-        v-for="option in field.options"
-        :key="option.id"
       >
-        <input
-          type="checkbox"
-          :name="option.value"
-          :value="option.value"
-          class="hidden"
-          :class="`peer/${option.value}`"
-        />
-        <label :for="option.value" :class="`peer-checked/${option.value}:bg-purple-700`">{{
-          option.label
-        }}</label>
+        <div class="flex flex-wrap gap-2">
+          <fieldset class="relative" v-for="option in field.options" :key="option.id">
+            <input type="checkbox" :name="option.value" :value="option.value" class="peer absolute opacity-0 w-full h-full cursor-pointer" />
+            <label :for="option.value" class="flex rounded-3xl border-2 border-purple-500 px-4 py-2 peer-checked:text-white peer-checked:bg-purple-500 after:w-4 after:hidden peer-checked:after:block after:ml-2 after:bg-checkmark after:bg-contain after:bg-no-repeat after:bg-center">
+              <span>
+                {{ option.label }}
+              </span>
+            </label>
+          </fieldset>
+        </div>
       </template>
       <template v-else-if="field.type === 'select'">
         <select name="" id="" class="mb-4 block w-full border-2 border-black p-2">
