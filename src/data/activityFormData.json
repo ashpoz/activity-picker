@@ -9,16 +9,54 @@
         "label": "How much time do you have?",
         "name": "time",
         "options": [
-          { "value": 15, "label": "15 minutes" },
-          { "value": 30, "label": "30 minutes" },
-          { "value": 45, "label": "45 minutes" },
-          { "value": 60, "label": "60 minutes" }
+          {
+            "value": 15,
+            "label": "15 minutes"
+          },
+          {
+            "value": 30,
+            "label": "30 minutes"
+          },
+          {
+            "value": 45,
+            "label": "45 minutes"
+          },
+          {
+            "value": 60,
+            "label": "60+ minutes"
+          }
         ]
       }
     ]
   },
   {
     "id": 1,
+    "title": "How many people?",
+    "fields": [
+      {
+        "id": 0,
+        "type": "select",
+        "label": "How many people?",
+        "name": "time",
+        "options": [
+          {
+            "value": 1,
+            "label": "Solo"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3 or more"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
     "title": "What type of activity?",
     "fields": [
       {
@@ -27,15 +65,42 @@
         "label": "What type of activity?",
         "name": "type",
         "options": [
-          { "value": "outdoor", "label": "Outdoor" },
-          { "value": "exercise", "label": "Exercise" },
-          { "value": "drinks", "label": "Drinks" },
-          { "value": "kid-friendly", "label": "Kid Friendly" },
-          { "value": "free", "label": "Free" },
-          { "value": "relaxing", "label": "Relaxing" },
-          { "value": "exciting", "label": "Exciting" },
-          { "value": "solo", "label": "Solo" },
-          { "value": "social", "label": "Social" }
+          {
+            "value": "outdoor",
+            "label": "Outdoor"
+          },
+          {
+            "value": "exercise",
+            "label": "Exercise"
+          },
+          {
+            "value": "drinks",
+            "label": "Drinks"
+          },
+          {
+            "value": "kid-friendly",
+            "label": "Kid Friendly"
+          },
+          {
+            "value": "free",
+            "label": "Free"
+          },
+          {
+            "value": "relaxing",
+            "label": "Relaxing"
+          },
+          {
+            "value": "exciting",
+            "label": "Exciting"
+          },
+          {
+            "value": "solo",
+            "label": "Solo"
+          },
+          {
+            "value": "social",
+            "label": "Social"
+          }
         ]
       }
     ]

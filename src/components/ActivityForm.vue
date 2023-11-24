@@ -2,17 +2,25 @@
 import { ref } from 'vue'
 import activityFormData from '@/data/activityFormData.json'
 
-let currentStep = ref(activityFormData[0].id);
+let currentStep = ref(activityFormData[0].id)
 
-function nextStep() {
-  if (currentStep.value === activityFormData.length - 1) return
-  currentStep.value++
+function handleSubmit() {
+  alert('submitted!')
 }
 </script>
 
 <template>
-  <form @submit.prevent="nextStep()">
+  <form @submit.prevent="handleSubmit">
     <h2 class="mb-8 text-4xl font-bold">{{ activityFormData[currentStep].title }}</h2>
+    <template v-if="currentStep != 0">
+      <button
+        @click="currentStep--"
+        class="mb-4 text-purple-700 underline hover:text-purple-900"
+        type="submit"
+      >
+        &#8592; Back
+      </button>
+    </template>
     <template v-for="field in activityFormData[currentStep].fields" :key="field[id]">
       <label class="sr-only mb-1" :for="field.id">{{ field.type }}</label>
       <template v-if="field.type === 'input'">
@@ -23,13 +31,19 @@ function nextStep() {
           :placeholder="field.placeholder"
         />
       </template>
-      <template
-        v-else-if="field.type === 'checkbox'"
-      >
+      <template v-else-if="field.type === 'checkbox'">
         <div class="flex flex-wrap gap-2">
           <fieldset class="relative" v-for="option in field.options" :key="option.id">
-            <input type="checkbox" :name="option.value" :value="option.value" class="peer absolute opacity-0 w-full h-full cursor-pointer" />
-            <label :for="option.value" class="flex rounded-3xl border-2 border-purple-500 px-4 py-2 peer-checked:text-white peer-checked:bg-purple-500 after:w-4 after:hidden peer-checked:after:block after:ml-2 after:bg-checkmark after:bg-contain after:bg-no-repeat after:bg-center">
+            <input
+              type="checkbox"
+              :name="option.value"
+              :value="option.value"
+              class="peer absolute h-full w-full cursor-pointer opacity-0"
+            />
+            <label
+              :for="option.value"
+              class="flex rounded-3xl border-2 border-purple-500 px-4 py-2 after:ml-2 after:hidden after:w-4 after:bg-checkmark after:bg-contain after:bg-center after:bg-no-repeat peer-checked:bg-purple-500 peer-checked:text-white peer-checked:after:block"
+            >
               <span>
                 {{ option.label }}
               </span>
@@ -47,13 +61,22 @@ function nextStep() {
       </template>
     </template>
     <button
+      v-if="currentStep < activityFormData.length - 1"
+      @click="currentStep++"
       class="mb-4 mt-6 block bg-purple-700 px-10 py-3 font-bold text-white hover:bg-purple-900"
-      type="submit"
+      type="button"
     >
       Next
     </button>
-    <a href="" class="text-purple-700 underline hover:text-purple-900"
-      >I don't care, pick for me!</a
+    <button
+      v-else
+      class="mb-4 mt-6 block bg-purple-700 px-10 py-3 font-bold text-white hover:bg-purple-900"
+      type="submit"
     >
+      Submit
+    </button>
+    <button class="text-purple-700 underline hover:text-purple-900">
+      I don't care, pick for me!
+    </button>
   </form>
 </template>
