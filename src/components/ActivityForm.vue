@@ -1,11 +1,45 @@
 <script setup>
-import { ref } from 'vue'
+import { onBeforeUpdate, onMounted, onUpdated, reactive, ref } from 'vue'
 import activityFormData from '@/data/activityFormData.json'
+import activitiesData from '@/data/activities.json'
 
 let currentStep = ref(activityFormData[0].id)
 
+let activityForm = ref(null)
+
+onUpdated(() => {
+  console.log(activityForm.value)
+})
+
+// function navigateForm(direction) {
+//   if (direction === 'next') {
+//     currentStep.value++
+//     console.log(activityForm.value)
+//   } else if (direction === 'back') {
+//     currentStep.value--
+//   }
+// }
+
 function handleSubmit() {
+  // TODO: temporary, remove later
   alert('submitted!')
+
+  // get form data
+  const formData = new FormData(activityForm.value)
+
+  // convert to obj
+  const data = {}
+  for (const [key, value] of formData.entries()) {
+    data[key] = value
+  }
+
+  console.log(data)
+  // filter for matches in data
+
+  // if no matches, alert user
+  // if matches, save array
+  // if array length > 1, randomly select one
+  // else, select the one
 }
 </script>
 
@@ -16,7 +50,7 @@ function handleSubmit() {
       <button
         @click="currentStep--"
         class="mb-4 text-purple-700 underline hover:text-purple-900"
-        type="submit"
+        type="button"
       >
         &#8592; Back
       </button>
@@ -26,6 +60,7 @@ function handleSubmit() {
       <template v-if="field.type === 'input'">
         <input
           class="mb-4 block w-full border-2 border-black p-2"
+          v-model="activityForm[field.id]"
           :type="field.type"
           :id="field.id"
           :placeholder="field.placeholder"

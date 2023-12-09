@@ -2,11 +2,14 @@
   "activities": [
     {
       "name": "Hiking",
-      "time": "2 hours",
+      "time": {
+        "value": 10800000,
+        "label": "3-4 hours"
+      },
       "participants": {
         "1": false,
         "2": true,
-        "3 or more": true
+        "3+": true
       },
       "tags": [
         "outdoor",
@@ -15,11 +18,14 @@
     },
     {
       "name": "Cooking class",
-      "time": "3 hours",
+      "time": {
+        "value": 10800000,
+        "label": "3-4 hours"
+      },
       "participants": {
         "1": true,
         "2": true,
-        "3 or more": true
+        "3+": true
       },
       "tags": [
         "cooking",
@@ -28,11 +34,14 @@
     },
     {
       "name": "Movie night",
-      "time": "2 hours",
+      "time": {
+        "value": 10800000,
+        "label": "3-4 hours"
+      },
       "participants": {
         "1": true,
         "2": true,
-        "3 or more": true
+        "3+": true
       },
       "tags": [
         "movies",
@@ -41,11 +50,14 @@
     },
     {
       "name": "Board games",
-      "time": "1 hour",
+      "time": {
+        "value": 10800000,
+        "label": "3-4 hours"
+      },
       "participants": {
         "1": false,
         "2": true,
-        "3 or more": true
+        "3+": true
       },
       "tags": [
         "games",
